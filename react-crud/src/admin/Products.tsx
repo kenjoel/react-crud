@@ -60,6 +60,10 @@ const Products = () => {
                             <div className="btn-group mr-2">
                                 <a href="#" className="btn btn-sm btn-outline-secondary" onClick={() => {deleteProduct(p.id)}}>Delete</a>
                             </div>
+
+                            <div className="btn-group mr-2">
+                                <Link href="#" className="btn btn-sm btn-outline-secondary" to={`/admin/products/${p.id}/edit`}>Edit</Link>
+                            </div>
                         </td>
                         </tr>
                     )
