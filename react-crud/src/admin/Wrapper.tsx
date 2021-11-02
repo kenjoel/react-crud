@@ -1,10 +1,11 @@
 import React, { PropsWithChildren } from "react";
-import Menu from "../components/Menu";
-import Nav from "../components/Nav";
+import Menu from "./components/Menu";
+import Nav from "./components/Nav";
+
 
 const Wrapper = (props: PropsWithChildren<any>) => {
     return(
-        <div className="App">
+        <div>
         <Nav />    
       <div className="container-fluid">
         <div className="row">

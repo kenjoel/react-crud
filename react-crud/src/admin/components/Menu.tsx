@@ -6,7 +6,7 @@ const Menu = () => {
       <div className="position-sticky pt-3">
         <ul className="nav flex-column">
           <li className="nav-item">
-            <a className="nav-link active" aria-current="page" href="#">
+            <a className="nav-link active" aria-current="page" href="/#">
               Products
             </a>
           </li>
