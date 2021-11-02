@@ -1,7 +1,9 @@
 import React from 'react';
+import Wrapper from './Wrapper';
 
-const Nav = () => {
+const Products = () => {
     return(
+        <Wrapper>
           <div className="table-responsive">
             <table className="table table-striped table-sm">
               <thead>
@@ -24,7 +26,8 @@ const Nav = () => {
               </tbody>
             </table>
           </div>
+         </Wrapper>
     )
 }
 
-export default Nav
+export default Products
