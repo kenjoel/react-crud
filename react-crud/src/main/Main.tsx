@@ -1,32 +1,62 @@
-import React from "react";
+import React, { useEffect, useState } from "react";
+import { product } from "../interfaces/product";
 
 const Main = () => {
-    return(
-        
+  const [products, setProducts] = useState([] as product[]);
 
+  useEffect(  () => {
+
+    (async () => {
+      const response = await fetch("https://localhost:8001/api/products")
+
+      const data = await response.json();
+
+      setProducts(products)
+    })()
+
+  }, [])
+
+  const like = async (id: number) => {
+    await fetch(`https://localhost:8001/api/products/${id}/like`, {
+      method: 'POST',
+      headers: {"Content-Type": "application/json"}
+    })
+
+    setProducts( products.map( (p: product) => {
+      if(p.id == id){
+        p.likes++
+      }
+
+      return p;
+    }))
+
+  }
+
+    return( 
 <main>
-
 
   <div className="album py-5 bg-light">
     <div className="container">
 
       <div className="row row-cols-1 row-cols-sm-2 row-cols-md-3 g-3">
-        <div className="col">
+        {products.map((p: product) => { return(
+          <div className="col" key={p.id}>
           <div className="card shadow-sm">
-            <svg className="bd-placeholder-img card-img-top" width="100%" height="225" xmlns="http://www.w3.org/2000/svg" role="img" aria-label="Placeholder: Thumbnail" preserveAspectRatio="xMidYMid slice" focusable="false"><title>Placeholder</title><rect width="100%" height="100%" fill="#55595c"/><text x="50%" y="50%" fill="#eceeef" dy=".3em">Thumbnail</text></svg>
-
+            <img src={p.image} height="180"/>
             <div className="card-body">
-              <p className="card-text">This is a wider card with supporting text below as a natural lead-in to additional content. This content is a little bit longer.</p>
+              <p className="card-text">{p.name}</p>
               <div className="d-flex justify-content-between align-items-center">
                 <div className="btn-group">
-                  <button type="button" className="btn btn-sm btn-outline-secondary">View</button>
-                  <button type="button" className="btn btn-sm btn-outline-secondary">Edit</button>
+                  <button type="button" className="btn btn-sm btn-outline-secondary"
+                  onClick={() => like(p.id)}
+                  >Like</button>
                 </div>
-                <small className="text-muted">9 mins</small>
+                <small className="text-muted">{p.likes} likes</small>
               </div>
             </div>
           </div>
-        </div>
+          </div>
+        ) })}        
         </div>
       </div>
     </div>
