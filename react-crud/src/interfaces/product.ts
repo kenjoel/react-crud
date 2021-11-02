@@ -1,6 +1,6 @@
 export interface product{
     id:number,
-    title: string
+    name: string
     image:string
     likes: number
 }
