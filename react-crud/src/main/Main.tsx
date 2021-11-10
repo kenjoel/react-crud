@@ -1,4 +1,6 @@
 import React, { useEffect, useState } from "react";
+import { Link } from "react-router-dom";
+import MainNav from "../admin/components/MainNav";
 import { product } from "../interfaces/product";
 
 const Main = () => {
@@ -39,8 +41,10 @@ const Main = () => {
 
   <div className="album py-5 bg-light">
     <div className="container">
-
-      <div className="row row-cols-1 row-cols-sm-2 row-cols-md-3 g-3">
+      <div className="row row-cols-1">
+        <MainNav/>
+      </div>
+      <div className="row row-cols-3 row-cols-sm-2 row-cols-md-3 g-3">
         {products.map((p: product) => { return(
           <div className="col" key={p.id}>
           <div className="card shadow-sm">

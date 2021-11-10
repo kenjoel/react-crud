@@ -3,7 +3,7 @@ import { Redirect } from "react-router";
 import Wrapper from "./Wrapper";
 
 const ProductCreate = () => {
-    const [name, setName] = useState('')
+    const [title, setName] = useState('')
     const [image, setImage] = useState('')  
     const [redirect, setRedirect] = useState(false)
 
@@ -15,7 +15,7 @@ const ProductCreate = () => {
             method:"POST",
             headers:{'Content-Type': 'application/json'},
             body: JSON.stringify({
-                name,
+                title,
                 image
             })
 
@@ -32,12 +32,12 @@ const ProductCreate = () => {
             <form onSubmit={submit}>
                 <div  className="form-group">
                     <label>Title</label>
-                    <input type="text" className="form-control" name="name" onChange={e => setName(e.target.value)}/>
+                    <input type="text" className="form-control" name="title" onChange={e => setName(e.target.value)}/>
                 </div>
 
                 <div  className="form-group">
                     <label>Title</label>
-                    <input type="text" className="form-control" name="title" onChange={e => setImage(e.target.value)}/>
+                    <input type="text" className="form-control" name="image" onChange={e => setImage(e.target.value)}/>
                     <button className="btn btn-outline-secondary">Save</button>
                 </div>
             </form>                
