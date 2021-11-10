@@ -54,7 +54,7 @@ const Products = () => {
                         <tr key={p.id}>
                         <td>{p.id}</td>
                         <td><img src={p.image} height="180"/></td>
-                        <td>{p.name}</td>
+                        <td>{p.title}</td>
                         <td>{p.likes }</td>
                         <td>
                             <div className="btn-group mr-2">

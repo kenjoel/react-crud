@@ -4,7 +4,7 @@ import { product } from "../interfaces/product";
 import Wrapper from "./Wrapper";
 
 const ProductEdit = (props: PropsWithRef<any>) => {
-    const [name, setName] = useState('')
+    const [title, setTitle] = useState('')
     const [image, setImage] = useState('')  
     const [redirect, setRedirect] = useState(false)
 
@@ -14,7 +14,7 @@ const ProductEdit = (props: PropsWithRef<any>) => {
 
             const product: product   = await response.json()
 
-            setName(product.name)
+            setTitle(product.title)
             setImage(product.image)
         })()
     })
@@ -27,7 +27,7 @@ const ProductEdit = (props: PropsWithRef<any>) => {
             method:"PUT",
             headers:{'Content-Type': 'application/json'},
             body: JSON.stringify({
-                name,
+                title,
                 image
             })
 
@@ -45,8 +45,8 @@ const ProductEdit = (props: PropsWithRef<any>) => {
                 <div  className="form-group">
                     <label>Title</label>
                     <input type="text" className="form-control" name="name" 
-                    defaultValue={name}
-                    onChange={e => setName(e.target.value)}/>
+                    defaultValue={title}
+                    onChange={e => setTitle(e.target.value)}/>
 
                 </div>
 
