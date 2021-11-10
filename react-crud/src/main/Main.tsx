@@ -9,7 +9,7 @@ const Main = () => {
   useEffect(  () => {
 
     (async () => {
-      const response = await fetch("http://localhost:8001/api/products")
+      const response = await fetch("http://localhost:8000/api/products")
 
       const data = await response.json();
       console.log(data)
