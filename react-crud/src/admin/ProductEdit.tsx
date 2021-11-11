@@ -19,6 +19,7 @@ const ProductEdit = (props: PropsWithRef<any>) => {
         })()
     })
 
+
     const submit = async (e: SyntheticEvent) => {
         e.preventDefault();
 
@@ -33,8 +34,8 @@ const ProductEdit = (props: PropsWithRef<any>) => {
 
          })
         setRedirect(true)
+        console.log(title, image)
     }
-
     if(redirect){
         return <Redirect to={"/admin/products"}/>
     }
@@ -44,7 +45,7 @@ const ProductEdit = (props: PropsWithRef<any>) => {
             <form onSubmit={submit}>
                 <div  className="form-group">
                     <label>Title</label>
-                    <input type="text" className="form-control" name="name" 
+                    <input type="text" className="form-control" name="title" 
                     defaultValue={title}
                     onChange={e => setTitle(e.target.value)}/>
 
@@ -52,10 +53,10 @@ const ProductEdit = (props: PropsWithRef<any>) => {
 
                 <div  className="form-group">
                     <label>Image</label>
-                    <input type="text" className="form-control" name="title" 
+                    <input type="text" className="form-control" name="image" 
                     defaultValue={image}
                     onChange={e => setImage(e.target.value)}/>
-                    <button className="btn btn-outline-secondary">Save</button>
+                    <button  className="btn btn-outline-secondary">Save</button>
                 </div>
             </form>                
         </Wrapper>
