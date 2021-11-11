@@ -36,7 +36,7 @@ const ProductCreate = () => {
                 </div>
 
                 <div  className="form-group">
-                    <label>Title</label>
+                    <label>Image</label>
                     <input type="text" className="form-control" name="image" onChange={e => setImage(e.target.value)}/>
                     <button className="btn btn-outline-secondary">Save</button>
                 </div>

@@ -13,11 +13,11 @@ const ProductEdit = (props: PropsWithRef<any>) => {
             const response = await await fetch(`http://localhost:8000/api/products/${props.match.params.id}`)
 
             const product: product   = await response.json()
-
-            setTitle(product.title)
             setImage(product.image)
+            setTitle(product.title)
+
         })()
-    })
+    }, [])
 
 
     const submit = async (e: SyntheticEvent) => {
@@ -45,9 +45,9 @@ const ProductEdit = (props: PropsWithRef<any>) => {
             <form onSubmit={submit}>
                 <div  className="form-group">
                     <label>Title</label>
-                    <input type="text" className="form-control" name="title" 
-                    defaultValue={title}
-                    onChange={e => setTitle(e.target.value)}/>
+                    <input type="text" className="form-control" name="title"  
+                    defaultValue={title} 
+                    onChange ={e => setTitle(e.target.value)}/>
 
                 </div>
 
@@ -55,7 +55,7 @@ const ProductEdit = (props: PropsWithRef<any>) => {
                     <label>Image</label>
                     <input type="text" className="form-control" name="image" 
                     defaultValue={image}
-                    onChange={e => setImage(e.target.value)}/>
+                    onChange ={e => setImage(e.target.value)} />
                     <button  className="btn btn-outline-secondary">Save</button>
                 </div>
             </form>                
